@@ -19,8 +19,11 @@ html = response.text
 selector = etree.HTML(html)
 title = selector.xpath('//*[@id="sanRoot"]/main/div[2]/div/div[2]/div/div[2]/a/div[1]/text()')
 score = selector.xpath('//*[@id="sanRoot"]/main/div[2]/div/div[2]/div/div[1]/div[2]/text()')
-data = pd.Series(data=score, index=title)
-frequencies = data.astype('int')
+# data = pd.Series(data=score, index=title)
+# frequencies = data.astype('int')
+
+score = [int(i) for i in score]
+frequencies = dict(zip(title, score))
 
 wordcloud = WordCloud(font_path="simkai.ttf",
                       max_words=100,
