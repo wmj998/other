@@ -8,10 +8,10 @@ url = 'https://top.baidu.com/board?tab=realtime'
 headers = {
     'User-Agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)'
 }
-proxies = {
-    'http': 'http://124.232.137.37:8888',
-    'https': 'https://124.232.137.37:8888'
-}
+# proxies = {
+#     'http': 'http://124.232.137.37:8888',
+#     'https': 'https://124.232.137.37:8888'
+# }
 # response = requests.get(url=url, headers=headers, proxies=proxies)
 response = requests.get(url=url, headers=headers)
 html = response.text
@@ -22,7 +22,8 @@ score = selector.xpath('//*[@id="sanRoot"]/main/div[2]/div/div[2]/div/div[1]/div
 # data = pd.Series(data=score, index=title)
 # frequencies = data.astype('int')
 
-score = [int(i) for i in score]
+# score = [int(i) for i in score]
+score = list(map(int, score))
 frequencies = dict(zip(title, score))
 
 wordcloud = WordCloud(font_path="simkai.ttf",
