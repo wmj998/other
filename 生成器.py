@@ -16,8 +16,7 @@ fib = fib(10)
 while True:
     try:
         y = next(fib)
-        if y or y == 0:
-            print(y, end=' ')
+        print(y, end=' ')
     except Exception as e:
         print(e)
         break
