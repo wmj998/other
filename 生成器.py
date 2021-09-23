@@ -12,11 +12,13 @@ def fib(num):
 
 
 fib = fib(10)
+for i in fib:
+    print(i, end=' ')
 
-while True:
-    try:
-        y = next(fib)
-        print(y, end=' ')
-    except Exception as e:
-        print(e)
-        break
+# while True:
+#     try:
+#         y = next(fib)
+#         print(y, end=' ')
+#     except Exception as e:
+#         print(e)
+#         break
